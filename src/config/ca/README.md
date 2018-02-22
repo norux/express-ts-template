@@ -1,23 +1,38 @@
-[TOC]
-
 # TLS certification generation
 
 We will generate **<u>SIMPLE</u>** TLS certification without **ANY PASSWORD** and **ANY SECURITY**. It will use only test application or tamplate.
 
-## Generate CA Certification
+Table of Contents
+=================
 
-### Generate RSA Key pair(public/private key)
+   * [TLS certification generation](#tls-certification-generation)
+   * [Generate CA Certification](#generate-ca-certification)
+      * [Generate RSA Key pair(public/private key)](#generate-rsa-key-pairpublicprivate-key)
+      * [Modify permission of private key](#modify-permission-of-private-key)
+      * [Generate CSR](#generate-csr)
+      * [Generate Certification (validity for 10 years)](#generate-certification-validity-for-10-years)
+      * [Confirm you certification](#confirm-you-certification)
+   * [Generate SSL Certification](#generate-ssl-certification)
+      * [Generate RSA Key pair(public/private key)](#generate-rsa-key-pairpublicprivate-key-1)
+      * [Remove Permission of private key](#remove-permission-of-private-key)
+      * [Generate CSR](#generate-csr-1)
+      * [Generate Certification (validity for 10 years)](#generate-certification-validity-for-10-years-1)
+      * [Confirm you certification](#confirm-you-certification-1)
+
+# Generate CA Certification
+
+## Generate RSA Key pair(public/private key)
 ```
 openssl genrsa -out ca-key.pem 2048
 ```
 And input your password. Don't forget it.
 
-### Modify permission of private key
+## Modify permission of private key
 ```
 chmod 600 ca.key
 ```
 
-### Generate CSR
+## Generate CSR
 ```
 openssl req \
     -new \
@@ -26,7 +41,7 @@ openssl req \
     -config ca.conf
 ```
 
-### Generate Certification (validity for 10 years)
+## Generate Certification (validity for 10 years)
 ```
 openssl x509 -req \
     -days 3650 \
@@ -38,25 +53,25 @@ openssl x509 -req \
     -extfile ca.conf
 ```
 
-### Confirm you certification
+## Confirm you certification
 ```
 openssl x509 -text -in ca-crt.pem
 ```
 
-## Generate SSL Certification
+# Generate SSL Certification
 
-### Generate RSA Key pair(public/private key)
+## Generate RSA Key pair(public/private key)
 ```
 openssl genrsa -out server-key.pem 2048;
 ```
 And input your password. Don't forget it.
 
-### Remove Permission of private key
+## Remove Permission of private key
 ```
 chmod 600 server-key.pem
 ```
 
-### Generate CSR 
+## Generate CSR 
 ```
 openssl req \
     -new \
@@ -65,7 +80,7 @@ openssl req \
     -config server.conf
 ```
 
-### Generate Certification (validity for 10 years)
+## Generate Certification (validity for 10 years)
 ```
 openssl x509 -req \
     -days 3650 \
@@ -79,12 +94,11 @@ openssl x509 -req \
 ```
 Signature by ca.key
 
-### Confirm you certification
+## Confirm you certification
 
 ```
 openssl x509 -text -in server-crt.pem
 ```
-
 
 
 Then, you can generate <u>**JUST SIMPLE**</u> TLS Certification. Do not use in real-world.
