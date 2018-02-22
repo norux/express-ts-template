@@ -1,12 +1,5 @@
 # express-ts-template
 Node.js의 유명한 라이브러리인 Express.js를 타입스크립트로 작성한 템플릿입니다.
-기본적인 서버의 실행을 위한 템플릿이며, 다음의 기능을 포함하였습니다.
-* Express.js의 기본 설정 작업
-* HTTPS를 위한 X.509 사설 인증서
-* 데이터베이스(MongoDB)연동
-* 로깅 시스템(Winston & Morgan) 연동
-* 유닛 테스트(Mocha) 연동
-* 테스트 커버리지(istanbul) 연동
 
 Read this in other language: [English](https://github.com/norux/express-ts-template/blob/master/README.md), [한국어](https://github.com/norux/express-ts-template/blob/master/README.ko.md)
 
@@ -25,6 +18,16 @@ Read this in other language: [English](https://github.com/norux/express-ts-templ
    * [설정](#설정)
 
 # 템플릿의 구성
+
+기본적인 서버의 실행을 위한 템플릿을 구성하였으며, 특히 다음의 기능을 포함하였습니다.
+
+- Express.js의 기본 설정 작업
+- HTTPS를 위한 X.509 사설 인증서
+- 데이터베이스(MongoDB)연동
+- 로깅 시스템(Winston & Morgan) 연동
+- 유닛 테스트(Mocha) 연동
+- 테스트 커버리지(istanbul) 연동
+
 ## 서버
  Express.js를 사용합니다. http 및 https를 쉽게 사용할 수 있도록 구현하였습니다.
  https를 위한 X.509 사설인증서도 포함합니다.(`{projectRoot}/src/config/ca`)
