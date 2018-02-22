@@ -8,6 +8,8 @@ Node.js의 유명한 라이브러리인 Express.js를 타입스크립트로 작�
 * 유닛 테스트(Mocha) 연동
 * 테스트 커버리지(istanbul) 연동
 
+Read this in other language: [English](https://github.com/norux/express-ts-template/blob/master/README.md), [한국어](https://github.com/norux/express-ts-template/blob/master/README.ko.md)
+
 목차
 =================
 

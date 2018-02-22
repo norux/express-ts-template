@@ -1,6 +1,8 @@
 # express-ts-template
 Template for express.js with typescript
 
+Read this in other language: [English](https://github.com/norux/express-ts-template/blob/master/README.md), [한국어](https://github.com/norux/express-ts-template/blob/master/README.ko.md)
+
 Table of Contents
 =================
 
