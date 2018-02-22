@@ -1,0 +1,11 @@
+# Project Setting
+.idea
+
+# node.js
+node_modules
+npm-debug.log
+
+
+# Typescript Build
+out-tsc
+dist
