@@ -16,7 +16,7 @@
     "build:prod": "echo 'TODO: webpack production build'",
     "build:dev": "echo 'TODO: webpack development build'",
     "pretest": "tsc",
-    "test": "istanbul cover _mocha out-tsc/index.spec.js -i 'out-tsc/**/*.js -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
+    "test": "istanbul cover _mocha out-tsc/index.spec.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
     "posttest": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/html -t html"
   },
   "repository": {
