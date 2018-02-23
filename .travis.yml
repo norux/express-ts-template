@@ -1,7 +1,8 @@
 language: node_js
 
 node_js:
-  - 'stable'
+  - 'node'
+  - 'lts/*'
   - '8'
 
 sudo: false
@@ -9,19 +10,10 @@ sudo: false
 env:
 NODE_ENV=test
 
-matrix:
-  fast_finish: true
-
 branches:
   only:
   - master
 
-#install:
-#  - npm install
-
 cache:
   directories:
     - node_modules
-
-git:
-  depth: 1
