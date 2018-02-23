@@ -1,7 +1,7 @@
 # express-ts-template
 Node.js의 유명한 라이브러리인 Express.js를 타입스크립트로 작성한 템플릿입니다.
 
-[![Build Status](https://travis-ci.org/norux/express-ts-template/?branch=master)](https://travis-ci.org/norux/express-ts-template/)
+[![Test Status](https://travis-ci.org/norux/express-ts-template.svg?branch=master)](https://travis-ci.org/norux/express-ts-template/)
 
 Read this in other language: [English](https://github.com/norux/express-ts-template/blob/master/README.md), [한국어](https://github.com/norux/express-ts-template/blob/master/README.ko.md)
 
