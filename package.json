@@ -4,10 +4,11 @@
   "description": "Template for express.js with typescript",
   "main": "src/index.ts",
   "scripts": {
-    "clean": "npm-run-all clean:dist clean:build clean:test",
+    "clean": "npm-run-all clean:dist clean:build clean:test clean:logs",
     "clean:dist": "rimraf dist",
     "clean:build": "rimraf out-tsc",
     "clean:test": "rimraf test",
+    "clean:logs": "rimraf logs",
     "start": "npm run start:dev",
     "start:prod": "NODE_ENV=production ts-node src/index.ts",
     "start:dev": "NODE_ENV=development ts-node src/index.ts",
