@@ -15,12 +15,13 @@
     "build": "npm run build:dev",
     "build:prod": "echo 'TODO: webpack production build'",
     "build:dev": "echo 'TODO: webpack development build'",
-    "pretest": "tsc",
-    "test": "istanbul cover _mocha test/index.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
-    "posttest": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/html -t html",
-    "pretest:ci": "tsc",
-    "test:ci": "istanbul cover _mocha test/index.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
-    "posttest:ci": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/lcov.info -t lcovonly"
+    "test": "npm-run-all clean:build tsc test:coverage test:remap-coverage-html test:tslint",
+    "test:ci": "npm-run-all clean:build tsc test:coverage test:remap-coverage-lcov test:tslint",
+    "tsc": "tsc",
+    "test:coverage": "istanbul cover _mocha test/index.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
+    "test:remap-coverage-html": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/html -t html",
+    "test:remap-coverage-lcov": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/lcov.info -t lcovonly",
+    "test:tslint": "tslint --project tsconfig.json --config tslint.json"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "remap-istanbul": "^0.10.1",
     "rimraf": "^2.6.2",
     "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
     "typescript": "^2.7.2",
     "webpack": "^3.11.0"
   },

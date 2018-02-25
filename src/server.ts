@@ -1,9 +1,7 @@
-import * as express from "express";
-import { createServer as httpCreateServer } from 'http';
-import { createServer as httpsCreateServer } from 'https';
-import { ServerConfig } from "./config/server.config";
-import { Server as HttpServer } from "http";
-import { Server as HttpsServer } from "https";
+import * as express from 'express';
+import { createServer as httpCreateServer, Server as HttpServer } from 'http';
+import { createServer as httpsCreateServer, Server as HttpsServer } from 'https';
+import { ServerConfig } from './config/server.config';
 
 export class Server {
   private app: express.Application;
@@ -11,13 +9,6 @@ export class Server {
   constructor() {
     this.app = express();
     this.routing();
-  }
-
-  private routing() {
-    this.app.get("/", (req: express.Request, res: express.Response, next: express.NextFunction) => {
-      console.log('hello world');
-      res.send("Hello world");
-    });
   }
 
   public getApp() {
@@ -32,10 +23,17 @@ export class Server {
 
   public https(): HttpsServer {
     return httpsCreateServer({
-      key: ServerConfig.tls.key,
-      cert: ServerConfig.tls.cert
+      cert: ServerConfig.tls.cert,
+      key: ServerConfig.tls.key
     }, this.app).listen(ServerConfig.port, ServerConfig.ip, () => {
       console.log(`HTTPS Server listening at ${ServerConfig.port}`);
     }).on('error', err => console.error(err));
+  }
+
+  private routing() {
+    this.app.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      console.log('hello world');
+      res.send('Hello world');
+    });
   }
 }

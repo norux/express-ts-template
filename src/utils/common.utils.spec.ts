@@ -1,5 +1,5 @@
 import expect = require('expect');
-import { CommonUtils } from "./common.utils";
+import { CommonUtils } from './common.utils';
 
 describe('common.utils', () => {
   describe('isProdMode() - Production Mode Test', () => {

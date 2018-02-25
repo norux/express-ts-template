@@ -1,4 +1,4 @@
-import { join } from "path";
+import { join } from 'path';
 
 export namespace CommonUtils {
   /**
@@ -28,9 +28,9 @@ export namespace CommonUtils {
    *           caDir      : Return {projectRoot}/src/config/ca
    * @returns {string}
    */
-  export const rootDir    = (): string => { return process.cwd() };
-  export const srcDir     = (): string => { return join(rootDir(), 'src') };
-  export const configDir  = (): string => { return join(srcDir(), 'config') };
-  export const caDir      = (): string => { return join(configDir(), 'ca') };
+  export const rootDir    = (): string => process.cwd();
+  export const srcDir     = (): string => join(rootDir(), 'src');
+  export const configDir  = (): string => join(srcDir(), 'config');
+  export const caDir      = (): string => join(configDir(), 'ca');
 
 }

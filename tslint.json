@@ -1,0 +1,72 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rulesDirectory": [
+    "src"
+  ],
+  "rules": {
+    "arrow-parens": false,
+    "arrow-return-shorthand": false,
+    "curly": [true, "ignore-same-line"],
+    "eofline": false,
+    "forin": false,
+    "indent": [true, "spaces", 4],
+    "no-namespace": false,
+    "no-consecutive-blank-lines": false,
+    "no-console": false,
+    "no-trailing-whitespace": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single", "avoid-escape"],
+    "space-before-function-paren": [true, "never"],
+    "space-within-parens": [true, 0],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "whitespace": [
+      true,
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast",
+      "check-preblock"
+    ]
+  },
+  "jsRules": {
+    "eofline": false,
+    "forin": false,
+    "indent": [true, "spaces", 2],
+    "no-consecutive-blank-lines": false,
+    "no-console": false,
+    "no-trailing-whitespace": false,
+    "object-literal-sort-keys": false,
+    "quotemark": [true, "single", "avoid-escape"],
+    "space-before-function-paren": [true, "never"],
+    "space-within-parens": [true, 0],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "whitespace": [
+      true,
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast",
+      "check-preblock"
+    ]
+  }
+}
