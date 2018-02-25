@@ -1,10 +1,8 @@
 import { productionMode as prod } from './server.config.prod';
 import { developmentMode as dev } from './server.config.dev';
 
-import { CommonUtils } from '../utils/common.utils';
+import { Protocol, isProdMode  } from '../utils/common.utils';
 import { SecureContextOptions as ITls } from 'tls';
-
-import Protocol = CommonUtils.Protocol;
 
 export interface IServerConfig {
   ip: string;
@@ -14,7 +12,7 @@ export interface IServerConfig {
 }
 
 export namespace ServerConfig {
-  const conf: IServerConfig = CommonUtils.isProdMode() ? prod : dev;
+  const conf: IServerConfig = isProdMode() ? prod : dev;
 
   export const ip: string         = conf.ip;
   export const port: number       = conf.port;
