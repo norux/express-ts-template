@@ -8,7 +8,7 @@ export const developmentMode: IServerConfig = {
   port: Number(process.env.PORT) || 8080,
   protocol: Protocol.https,
   tls: {
-    cert: readFileSync(join(caDir(), 'server-crt.pem')),
-    key: readFileSync(join(caDir(), 'server-key.pem'))
+    cert: readFileSync(join(caDir, 'server-crt.pem')),
+    key: readFileSync(join(caDir, 'server-key.pem'))
   }
 };

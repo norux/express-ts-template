@@ -8,7 +8,7 @@ export const productionMode: IServerConfig = {
   port: Number(process.env.PORT) || 443,
   protocol: Protocol.https,
   tls: {
-    cert: readFileSync(join(caDir(), 'server-crt.pem')),
-    key: readFileSync(join(caDir(), 'server-key.pem'))
+    cert: readFileSync(join(caDir, 'server-crt.pem')),
+    key: readFileSync(join(caDir, 'server-key.pem'))
   }
 };

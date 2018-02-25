@@ -4,7 +4,8 @@ import {
   rootDir,
   srcDir,
   configDir,
-  caDir
+  caDir,
+  logsDir
 } from './common.utils';
 
 describe('common.utils', () => {
@@ -40,21 +41,25 @@ describe('common.utils', () => {
     });
   });
 
-  describe('Getting Directory Functions Test', () => {
-    it('rootDir() = {projectDir} ', () => {
-      expect(rootDir()).toEqual(process.cwd());
+  describe('Getting Directory Value Test', () => {
+    it('rootDir = {projectDir} ', () => {
+      expect(rootDir).toEqual(process.cwd());
     });
 
-    it('srcDir() = {projectDir}/src', () => {
-      expect(srcDir()).toEqual(process.cwd() + '/src');
+    it('srcDir = {projectDir}/src', () => {
+      expect(srcDir).toEqual(process.cwd() + '/src');
     });
 
-    it('configDir() = {projectDir}/src/config', () => {
-      expect(configDir()).toEqual(process.cwd() + '/src/config');
+    it('configDir = {projectDir}/src/config', () => {
+      expect(configDir).toEqual(process.cwd() + '/src/config');
     });
 
-    it('caDir() = {projectDir}/src/config/ca', () => {
-      expect(caDir()).toEqual(process.cwd() + '/src/config/ca');
+    it('caDir = {projectDir}/src/config/ca', () => {
+      expect(caDir).toEqual(process.cwd() + '/src/config/ca');
+    });
+
+    it('logsDir = {projectDir}/logs', () => {
+      expect(logsDir).toEqual(process.cwd() + '/logs');
     });
   });
 });

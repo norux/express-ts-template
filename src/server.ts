@@ -2,6 +2,7 @@ import * as express from 'express';
 import { createServer as httpCreateServer, Server as HttpServer } from 'http';
 import { createServer as httpsCreateServer, Server as HttpsServer } from 'https';
 import { ServerConfig } from './config/server.config';
+import { logger } from './utils/logger.utils';
 
 export class Server {
   private app: express.Application;
@@ -17,7 +18,7 @@ export class Server {
 
   public http(): HttpServer {
     return this.app.listen(ServerConfig.port, ServerConfig.ip, () => {
-      console.log(`HTTP Server listening at ${ServerConfig.port}`);
+      logger.info(`HTTP Server listening at ${ServerConfig.port}`);
     });
   }
 
@@ -26,13 +27,13 @@ export class Server {
       cert: ServerConfig.tls.cert,
       key: ServerConfig.tls.key
     }, this.app).listen(ServerConfig.port, ServerConfig.ip, () => {
-      console.log(`HTTPS Server listening at ${ServerConfig.port}`);
-    }).on('error', err => console.error(err));
+      logger.info(`HTTPS Server listening at ${ServerConfig.port}`);
+    }).on('error', err => logger.error(err));
   }
 
   private routing() {
     this.app.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-      console.log('hello world');
+      logger.info('hello world');
       res.send('Hello world');
     });
   }
