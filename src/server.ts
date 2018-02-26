@@ -3,7 +3,7 @@ import { createServer as httpCreateServer, Server as HttpServer } from 'http';
 import { createServer as httpsCreateServer, Server as HttpsServer } from 'https';
 import { ServerConfig } from './config/server.config';
 import { logger } from './utils/logger.utils';
-import { Protocol } from "./utils/common.utils";
+import { Protocol } from './utils/common.utils';
 
 export class Server {
   private app: express.Application;
