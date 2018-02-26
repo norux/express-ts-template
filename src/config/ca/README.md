@@ -47,6 +47,7 @@ openssl req \
 openssl x509 -req \
     -days 3650 \
     -extensions v3_ca \
+    -sha256 \
     -set_serial 1 \
     -in ca-csr.pem \
     -signkey ca-key.pem \
@@ -86,6 +87,7 @@ openssl req \
 openssl x509 -req \
     -days 3650 \
     -extensions v3_user \
+    -sha256 \
     -in server-csr.pem \
     -CA ca-crt.pem \
     -CAcreateserial \

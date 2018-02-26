@@ -1,4 +1,5 @@
-# thumbnail
+# Dummy
+logs
 .DS_Store
 
 # Project Setting
@@ -9,11 +10,9 @@ node_modules
 npm-debug.log
 package-lock.json
 
-
 # Typescript Build
 out-tsc
 dist
 
 # Test
 coverage
-
