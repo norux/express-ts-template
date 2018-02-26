@@ -9,6 +9,7 @@ export interface IServerConfig {
   port: number;
   protocol: Protocol;
   tls: ITls;
+  staticDir: string;
 }
 
 export namespace ServerConfig {
@@ -18,4 +19,5 @@ export namespace ServerConfig {
   export const port: number       = conf.port;
   export const protocol: Protocol = conf.protocol;
   export const tls: ITls          = conf.tls;
+  export const staticDir: string  = conf.staticDir;
 }

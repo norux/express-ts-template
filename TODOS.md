@@ -1,4 +1,5 @@
 
 # TODO LIST
 
-* 테스트파일
+## 2018-02-26
+ * Generate *.spec file to unittest.
