@@ -1,4 +1,4 @@
 import { Server } from './server';
 
 const server = new Server();
-server.https();
+server.start();
