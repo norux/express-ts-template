@@ -18,6 +18,7 @@ Table of Contents
       * [Generate CSR](#generate-csr-1)
       * [Generate Certification (validity for 10 years)](#generate-certification-validity-for-10-years-1)
       * [Confirm you certification](#confirm-you-certification-1)
+   * [Reference](#reference)
 
 # Generate CA Certification
 
@@ -102,3 +103,6 @@ openssl x509 -text -in server-crt.pem
 
 
 Then, you can generate <u>**JUST SIMPLE**</u> TLS Certification. Do not use in real-world.
+
+# Reference
+* [OpenSSL 로 ROOT CA 생성 및 SSL 인증서 발급](https://www.lesstif.com/pages/viewpage.action?pageId=6979614)
