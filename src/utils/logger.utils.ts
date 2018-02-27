@@ -50,11 +50,13 @@ const makeOptions = (name: string, filename: string): ConsoleTransportOptions | 
         return config.colorize(options.level, options.timestamp() +
           '[' + options.level.toUpperCase() + '] ' +
           options.message +
+          JSON.stringify(options.meta) +
           printStack(options));
       } else {
         return options.timestamp() +
           '[' + options.level.toUpperCase() + '] ' +
           options.message +
+          JSON.stringify(options.meta) +
           printStack(options);
       }
     }
