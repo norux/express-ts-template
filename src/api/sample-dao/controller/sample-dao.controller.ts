@@ -9,7 +9,7 @@ export class SampleDaoController extends Controller {
   }
 
   public readAll(req: Request, res: Response): void {
-    SampleDao['readAll']()
+    SampleDao.readAll()
       .then((docs: any) => {
         res.json(docs);
       })
@@ -17,7 +17,7 @@ export class SampleDaoController extends Controller {
   }
 
   public read(req: Request, res: Response): void {
-    SampleDao['read'](req.params.name)
+    SampleDao.read(req.params.name)
       .then((docs: any) => {
         res.json(docs);
       })
@@ -25,7 +25,7 @@ export class SampleDaoController extends Controller {
   }
 
   public create(req: Request, res: Response): void {
-    SampleDao['create'](req.params.name)
+    SampleDao.create(req.params.name)
       .then((docs: any) => {
         res.json(docs);
       })
@@ -36,7 +36,7 @@ export class SampleDaoController extends Controller {
   }
 
   public delete(req: Request, res: Response): void {
-    SampleDao['delete'](req.params.name)
+    SampleDao.delete(req.params.name)
       .then((docs: any) => {
         res.json(docs);
       })

@@ -1,9 +1,10 @@
 import { Schema } from 'mongoose';
 
-export const SampleDaoSchema: Schema = new Schema({
+export const sampleDaoSchema: Schema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   }
 }, {
   minimize: false

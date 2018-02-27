@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-export class Controller {
+export abstract class Controller {
   constructor() {}
 
   public badRequest(req: Request, res: Response): void {
