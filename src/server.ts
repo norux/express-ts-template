@@ -9,7 +9,7 @@ import { createServer as httpsCreateServer, Server as HttpsServer } from 'https'
 
 import { ServerConfig } from './config/server.config';
 import { logger } from './utils/logger.utils';
-import { Protocol, srcDir } from './utils/common.utils';
+import { Protocol, srcDir, isTestMode } from './utils/common.utils';
 import { LoggerInstance } from 'winston';
 
 import { HelloWorldRoutes } from './api/hello-world/routes/hello-world.routes';
@@ -72,11 +72,13 @@ export class Server {
   }
 
   private setDB(): void {
-    DBConnect(DBConfig.url);
-    DBConnection.on('error', (err: Error) => {
-      logger.error('Error with the DB Conenction' + err.message);
-      process.exit(1);
-    });
+    if(!isTestMode()) {
+      DBConnect(DBConfig.url);
+      DBConnection.on('error', (err: Error) => {
+        logger.error('Error with the DB Conenction' + err.message);
+        process.exit(1);
+      });
+    }
   }
 
   private http(): HttpServer {

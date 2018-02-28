@@ -20,10 +20,12 @@
     "no-namespace": false,
     "no-string-literal": false,
     "no-trailing-whitespace": false,
+    "no-unnecessary-initializer": false,
     "object-literal-shorthand": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [true, "single", "avoid-escape"],
+    "semicolon": [true, "always", "strict-bound-class-methods"],
     "space-before-function-paren": [true, "never"],
     "space-within-parens": [true, 0],
     "trailing-comma": [

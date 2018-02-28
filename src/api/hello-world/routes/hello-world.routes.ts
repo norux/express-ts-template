@@ -3,18 +3,16 @@ import { Routes } from '../../routes';
 
 export class HelloWorldRoutes extends Routes {
   constructor() {
-    super();
+    super(new HelloWorldController());
   }
 
   protected routes(): void {
-    const ctrl = new HelloWorldController();
-
     this.router
       .route('/')
-      .get(ctrl.read)
-      .post(ctrl.create)
-      .put(ctrl.update)
-      .delete(ctrl.delete)
-      .all(ctrl.badRequest);
+      .get(this.ctrl.read)
+      .post(this.ctrl.create)
+      .put(this.ctrl.update)
+      .delete(this.ctrl.delete)
+      .all(this.ctrl.badRequest);
   }
 }

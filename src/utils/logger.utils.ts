@@ -1,6 +1,5 @@
 import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import _ = require('lodash');
 import {
   LoggerInstance,
   ConsoleTransportOptions,
@@ -51,13 +50,11 @@ const makeOptions = (name: string, filename: string): ConsoleTransportOptions | 
         return config.colorize(options.level, options.timestamp() +
           '[' + options.level.toUpperCase() + '] ' +
           options.message +
-          (_.isEmpty(options.meta) ? '' : JSON.stringify(options.meta)) +
           printStack(options));
       } else {
         return options.timestamp() +
           '[' + options.level.toUpperCase() + '] ' +
           options.message +
-          (_.isEmpty(options.meta) ? '' : JSON.stringify(options.meta)) +
           printStack(options);
       }
     }

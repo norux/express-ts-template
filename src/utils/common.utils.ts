@@ -10,6 +10,15 @@ export enum Protocol {
 }
 
 /**
+ * @function    isTestMode
+ * @description Return true if current mode is test
+ * @returns     {boolean}
+ *              true:   Test mode
+ *              false:  Normal mode (Production or Development)
+ */
+export const isTestMode = (): boolean => !!(process.env.NODE_ENV && (process.env.NODE_ENV.trim().toLowerCase() === 'test'));
+
+/**
  * @function    isProdMode
  * @description Return current mode whether Production mode or Development mode
  * @returns     {boolean}

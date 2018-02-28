@@ -3,22 +3,20 @@ import { SampleDaoController } from '../controller/sample-dao.controller';
 
 export class SampleDaoRoutes extends Routes {
   constructor() {
-    super();
+    super(new SampleDaoController());
   }
 
   protected routes(): void {
-    const ctrl = new SampleDaoController();
-
     this.router
       .route('/')
-      .get(ctrl.readAll)
-      .all(ctrl.badRequest);
+      .get(this.ctrl.readAll)
+      .all(this.ctrl.badRequest);
 
     this.router
       .route('/:name')
-      .get(ctrl.read)
-      .post(ctrl.create)
-      .delete(ctrl.delete)
-      .all(ctrl.badRequest);
+      .get(this.ctrl.read)
+      .post(this.ctrl.create)
+      .delete(this.ctrl.delete)
+      .all(this.ctrl.badRequest);
   }
 }
