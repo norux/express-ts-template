@@ -24,7 +24,7 @@ export class Server {
     this.app = express();
   }
 
-  public start(): void {
+  public start(): Server {
     this.setMiddleware();
     this.setRoutes();
     this.setDB();
@@ -42,6 +42,12 @@ export class Server {
         this.https();
         break;
     }
+
+    return this;
+  }
+
+  public getApp() {
+    return this.app;
   }
 
   private setMiddleware(): void {
