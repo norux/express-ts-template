@@ -19,7 +19,7 @@
     "test": "npm-run-all clean:build tsc test:coverage test:remap-coverage-html test:tslint",
     "test:ci": "npm-run-all clean:build tsc test:coverage test:remap-coverage-lcov test:tslint",
     "tsc": "tsc",
-    "test:coverage": "istanbul cover _mocha test/index.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
+    "test:coverage": "NODE_ENV=test istanbul cover _mocha test/index.js -i 'out-tsc/**/*.js' -x 'out-tsc/**/*.spec.js' --dir coverage --report json -- --timeout 5000",
     "test:remap-coverage-html": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/html -t html",
     "test:remap-coverage-lcov": "remap-istanbul -i ./coverage/coverage.json -o ./coverage/lcov.info -t lcovonly",
     "test:tslint": "tslint --project tsconfig.json --config tslint.json"

@@ -48,7 +48,7 @@ export class Server {
 
   public getApp = (): any => {
     if(!isTestMode()) {
-      return logger.error('This API only can be used in Test.')
+      return logger.error('This API only can be used in Test.');
     }
 
     this.setMiddleware();
@@ -112,5 +112,5 @@ export class Server {
         logger.info(`HTTPS Server listening at ${ServerConfig.port}`);
       })
       .on('error', (err: Error) => logger.error(err.message));
-  }
+  };
 }
