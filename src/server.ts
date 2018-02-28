@@ -24,7 +24,7 @@ export class Server {
     this.app = express();
   }
 
-  public start(): Server {
+  public start = (): Server => {
     this.setMiddleware();
     this.setRoutes();
     this.setDB();
@@ -44,13 +44,21 @@ export class Server {
     }
 
     return this;
-  }
+  };
 
-  public getApp() {
+  public getApp = (): any => {
+    if(!isTestMode()) {
+      return logger.error('This API only can be used in Test.')
+    }
+
+    this.setMiddleware();
+    this.setRoutes();
+    this.setDB();
+
     return this.app;
-  }
+  };
 
-  private setMiddleware(): void {
+  private setMiddleware = (): void => {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(express.static(ServerConfig.staticDir));
@@ -60,9 +68,9 @@ export class Server {
       }
     }));
     this.app.use(helmet());
-  }
+  };
 
-  private setRoutes(): void {
+  private setRoutes = (): void => {
     /**
      * REST API
      */
@@ -75,9 +83,9 @@ export class Server {
         logger.error('404 Error');
         res.status(404).sendFile(join(srcDir, 'public', '404.html'));
       });
-  }
+  };
 
-  private setDB(): void {
+  private setDB = (): void => {
     if(!isTestMode()) {
       DBConnect(DBConfig.url);
       DBConnection.on('error', (err: Error) => {
@@ -85,17 +93,17 @@ export class Server {
         process.exit(1);
       });
     }
-  }
+  };
 
-  private http(): HttpServer {
+  private http = (): HttpServer => {
     return httpCreateServer(this.app)
       .listen(ServerConfig.port, ServerConfig.ip, () => {
         logger.info(`HTTP Server listening at ${ServerConfig.port}`);
       })
       .on('error', (err: Error) => logger.error(err.message));
-  }
+  };
 
-  private https(): HttpsServer {
+  private https = (): HttpsServer => {
     return httpsCreateServer({
       cert: ServerConfig.tls.cert,
       key: ServerConfig.tls.key
