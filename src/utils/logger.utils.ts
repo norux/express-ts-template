@@ -8,8 +8,9 @@ import {
   config,
   transports
 } from 'winston';
-import { logsDir } from './common.utils';
+import { isTestMode, logsDir } from './common.utils';
 
+/* istanbul ignore next */
 const makeOptions = (name: string, filename: string): ConsoleTransportOptions | FileTransportOptions => {
   const printStack = (options: any): string => {
     let message: string = '';
@@ -46,6 +47,8 @@ const makeOptions = (name: string, filename: string): ConsoleTransportOptions | 
     },
 
     formatter: (options: any): string => {
+      if(isTestMode()) return '';
+
       if(options.colorize) {
         return config.colorize(options.level, options.timestamp() +
           '[' + options.level.toUpperCase() + '] ' +
@@ -61,6 +64,7 @@ const makeOptions = (name: string, filename: string): ConsoleTransportOptions | 
   };
 };
 
+/* istanbul ignore next */
 if(!existsSync(logsDir)) {
   mkdirSync(logsDir);
 }

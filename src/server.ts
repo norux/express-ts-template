@@ -48,12 +48,8 @@ export class Server {
 
   public getApp = (): any => {
     if(!isTestMode()) {
-      return logger.error('This API only can be used in Test.')
+      return logger.error('This API only can be used in Test.');
     }
-
-    this.setMiddleware();
-    this.setRoutes();
-    this.setDB();
 
     return this.app;
   };
@@ -62,11 +58,15 @@ export class Server {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(express.static(ServerConfig.staticDir));
-    this.app.use(morgan('short', {
-      stream: {
-        write: (message: string): LoggerInstance => logger.info(message.trim())
-      }
-    }));
+
+    /* istanbul ignore next */
+    if(!isTestMode()) {
+      this.app.use(morgan('short', {
+        stream: {
+          write: (message: string): LoggerInstance => logger.info(message.trim())
+        }
+      }));
+    }
     this.app.use(helmet());
   };
 
@@ -86,6 +86,7 @@ export class Server {
   };
 
   private setDB = (): void => {
+    /* istanbul ignore next */
     if(!isTestMode()) {
       DBConnect(DBConfig.url);
       DBConnection.on('error', (err: Error) => {
@@ -112,5 +113,5 @@ export class Server {
         logger.info(`HTTPS Server listening at ${ServerConfig.port}`);
       })
       .on('error', (err: Error) => logger.error(err.message));
-  }
+  };
 }
