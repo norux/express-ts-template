@@ -8,7 +8,6 @@ logs
 # node.js
 node_modules
 npm-debug.log
-package-lock.json
 
 # Typescript Build
 out-tsc
