@@ -8,7 +8,7 @@ import {
   config,
   transports
 } from 'winston';
-import { isTestMode, logsDir } from './common.utils';
+import { isProdMode, isTestMode, logsDir } from './common.utils';
 
 /* istanbul ignore next */
 const makeOptions = (name: string, filename: string): ConsoleTransportOptions | FileTransportOptions => {
@@ -25,6 +25,7 @@ const makeOptions = (name: string, filename: string): ConsoleTransportOptions | 
   return {
     name:     name,
     filename: filename,
+    level:    isProdMode() ? 'info' : 'verbose',
     json:     false,
     colorize: filename === 'console',
     handleExceptions: true,
