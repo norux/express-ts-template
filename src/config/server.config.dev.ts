@@ -11,5 +11,5 @@ export const developmentMode: IServerConfig = {
     cert: readFileSync(join(caDir, 'server-crt.pem')),
     key: readFileSync(join(caDir, 'server-key.pem'))
   },
-  staticDir: join(srcDir, 'public')
+  staticDir: [ join(srcDir, 'public') ]
 };

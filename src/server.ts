@@ -57,7 +57,10 @@ export class Server {
   private setMiddleware = (): void => {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(express.static(ServerConfig.staticDir));
+
+    ServerConfig.staticDir.forEach((dir) => {
+      this.app.use(express.static(dir));
+    });
 
     /* istanbul ignore next */
     if(!isTestMode()) {
